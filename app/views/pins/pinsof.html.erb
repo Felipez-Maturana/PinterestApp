@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-  <h1>Lista de todos los Pins</h1>
-<div class="grid">
+<div class="container">
+  <h1>Pins de <%= @user.email %></h1>
 
   <% @pins.each do |pin| %>
-      <div class="grid-item">
-    <div class="thumbnail">
+    <div class="col-md-3">
+      <div class="thumbnail">
         <%= pin.name %>
         <%= image_tag(pin.photo, :class => 'img-responsive') %>
         <%= pin.description %>
@@ -13,7 +13,7 @@
           <%= link_to 'Show', pin, :class => 'btn btn-primary' %>
           <%= link_to 'Edit', edit_pin_path(pin), :class => 'btn btn-info' %>
           <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
-        </div>        
+        </div>
       </div> 
     </div>
   <% end %>
@@ -23,21 +23,3 @@
   <%= link_to 'New Pin', new_pin_path %>
   <% end %>
 </div>
-
-
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
-<script text="text/javascript" >
-$('.grid').masonry({
-  // options
-  itemSelector: '.grid-item',
-  columnWidth: 400
-});
-
-$(window).load(function(){ 
-  $('.grid').masonry({
-  // options
-  itemSelector: '.grid-item',
-  columnWidth: 400
-});
-  })
-</script>

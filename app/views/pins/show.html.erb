@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
+  <div class="col-md-6 col-lg-offset-3">
+      <div class="thumbnail well">
   <p>
     <strong>Nombre:</strong>
     <%= @pin.name %>
@@ -14,6 +16,11 @@
     <strong>Description:</strong>
     <%= @pin.description %>
   </p>
+  <div class="buttons" style="text-align: center">
+    <%= link_to 'Edit', edit_pin_path(@pin), class: :'btn btn-primary' %> |
+    <%= link_to 'Back', pins_path, class: :'btn btn-info '%> |
+    <%= link_to "Mas pins de este usuario", pinsof_path(@pin.user), class: :'btn btn-success' %>
+  </div>
+  </div>
+  </div>
 </div>
-<%= link_to 'Edit', edit_pin_path(@pin) %> |
-<%= link_to 'Back', pins_path %>
